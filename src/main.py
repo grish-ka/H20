@@ -13,8 +13,39 @@ parser.add_argument('file')           # positional argument
 # parser.add_argument('-v', '--verbose',
 #                     action='store_true')  # on/off flag
 args = parser.parse_args()
-def ev(s):
-    toks = s.split()
-    stack = []
+
+class Ev:
+
+
+
+    def ev(self, s):
+        # s = self.s
+        self.toks = s.split()
+        self.stack = []
+        self.ev_expr(self, s)
+    def ev_expr(self, s):
+        toks = s.split()
+        stack = []
+        for tok in toks:
+            if tok.isdigit(): stack.append(tok)
+            elif tok=='+':
+                rhs = int(stack.pop())
+                lhs = int(stack.pop())
+                stack.append(lhs+rhs)
+            elif tok=='-':
+                rhs = int(stack.pop())
+                lhs = int(stack.pop())
+                stack.append(lhs-rhs)
+            elif tok=='/':
+                rhs = int(stack.pop())
+                lhs = int(stack.pop())
+                stack.append(lhs/rhs)
+            elif tok == '*':
+                rhs = int(stack.pop())
+                lhs = int(stack.pop())
+                stack.append(lhs * rhs)
+        for index in range(len(stack)):
+                print(stack[index])
+
 if __name__ == '__main__':
-    ev(open(args.file).read())
+    Ev.ev(Ev, open(args.file).read())
