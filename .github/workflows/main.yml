@@ -37,12 +37,12 @@ jobs:
         if (Test-Path ".\H20.spec") { Remove-Item -Force ".\H20.spec" }
         if (Test-Path ".\app") { Remove-Item -Recurse -Force ".\app" }
 
-        # Run PyInstaller to create the bundled application (e.g., in dist/H20 folder)
+        # Run PyInstaller to create the bundled application (e.g., in dist/H20.exe for --onefile)
         # Using --onefile since you mentioned no assets, so the .exe will be standalone
         pyinstaller --name H20 --onefile --windowed main.py 
 
-        # Create the 'app' directory
-        New-Item -ItemType Directory -Path ".\app"
+        # Create the 'app' directory if it doesn't exist
+        if (-not (Test-Path ".\app")) { New-Item -ItemType Directory -Path ".\app" | Out-Null }
 
         # Copy PyInstaller's single executable to the 'app' folder as expected by msi.json
         Copy-Item -Path ".\dist\H20.exe" -Destination ".\app\" -Force
@@ -65,59 +65,34 @@ jobs:
       run: |
         Get-ChildItem -Path "OutputMSI" -Recurse
 
-#    # --- Sigstore Signing Step ---
-#    - name: Sign MSI with Sigstore
-#      uses: sigstore/gh-action-sign@v1 # <--- CHANGED ACTION NAME
-#      with:
-#        # The 'assets' input takes a space-separated list of files or directories
-#        assets: OutputMSI/H20-1.0.0.msi # Still adjust version if needed
-#        # No 'files' input for this action, it's 'assets'
-        # --- Sigstore Signing Steps (Updated Method) ---
-        - name: Set up Cosign
-          uses: sigstore/cosign-installer@v3.1.1 # Install the cosign tool
-          with:
-            cosign-release: 'v2.2.3' # Specify a stable Cosign version
+    # --- Sigstore Signing Steps (Updated Method) ---
+    - name: Set up Cosign
+      uses: sigstore/cosign-installer@v3.1.1 # Install the cosign tool
+      with:
+        cosign-release: 'v2.2.3' # Specify a stable Cosign version
 
-        - name: Get Sigstore Identity Token
-          # This step is often implicitly handled by the signing action,
-          # but sometimes it helps to explicitly request the token for debugging or complex scenarios.
-          # For a simple blob sign, cosign should pick up the OIDC token automatically if permissions are set.
-          id: sigstore_identity
-          uses: actions/github-script@v6
-          with:
-            script: |
-              const token = await core.getIDToken('https://token.actions.githubusercontent.com');
-              core.setOutput('token', token);
+    - name: Sign MSI with Cosign
+      shell: pwsh # Explicitly use PowerShell (pwsh) for clarity
+      env:
+        COSIGN_EXPERIMENTAL: "true" # Required for some newer cosign features
+        # COSIGN_REPOSITORY: ghcr.io/${{ github.repository }} # Uncomment if you want to push signatures to GHCR
+      run: |
+        # Get the path to your generated MSI
+        $msiPath = "OutputMSI/H20-1.0.0.msi" # Adjust version number or use wildcard if mpdev names it dynamically
+        
+        # Check if the MSI file exists
+        if (-not (Test-Path $msiPath)) {
+            Write-Host "MSI file not found at $msiPath. Listing OutputMSI folder for debugging..."
+            Get-ChildItem -Path "OutputMSI" -Recurse
+            exit 1
+        }
+        
+        Write-Host "Attempting to sign $msiPath with Cosign..."
+        cosign sign-blob --output-signature "$($msiPath).sig" --output-attestation "$($msiPath).att" --yes "$msiPath"
+        
+        Write-Host "MSI signing process completed. Signature and attestation files generated."
 
-        - name: Sign MSI with Cosign
-            shell: pwsh # Explicitly use PowerShell (pwsh) for clarity
-            env:
-              COSIGN_EXPERIMENTAL: "true" # Required for some newer cosign features
-              # COSIGN_REPOSITORY is usually automatically set by the gh-action-sigstore-sign,
-              # but for direct cosign calls, if you want it to push to GHCR, uncomment and set.
-              # COSIGN_REPOSITORY: ghcr.io/${{ github.repository }}
-            run: |
-              # Get the path to your generated MSI
-              $msiPath = "OutputMSI/H20-1.0.0.msi" # Adjust version number or use wildcard if mpdev names it dynamically
-              
-              # Check if the MSI file exists
-              if (-not (Test-Path $msiPath)) {
-                  Write-Host "MSI file not found at $msiPath. Listing OutputMSI folder for debugging..."
-                  Get-ChildItem -Path "OutputMSI" -Recurse
-                  exit 1
-              }
-              
-              Write-Host "Attempting to sign $msiPath with Cosign..."
-              # Sign the MSI file as a blob using cosign.
-              # This will upload the signature to Rekor and potentially store metadata.
-              # The OIDC token from GitHub Actions will be used for authentication.
-              # --yes is important for non-interactive environments
-              # If you specify COSIGN_REPOSITORY env var, it will push to that OCI registry.
-              cosign sign-blob --output-signature "$($msiPath).sig" --output-attestation "$($msiPath).att" --yes "$msiPath"
-              
-              Write-Host "MSI signing process completed. Signature and attestation files generated."
-
-      # --- Release Creation and Asset Upload ---
+    # --- Release Creation and Asset Upload ---
     - name: Create GitHub Release
       id: create_release
       uses: actions/create-release@v1
