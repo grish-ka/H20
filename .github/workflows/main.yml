@@ -39,7 +39,7 @@ jobs:
 
         # Run PyInstaller to create the bundled application (e.g., in dist/H20.exe for --onefile)
         # Using --onefile since you mentioned no assets, so the .exe will be standalone
-        pyinstaller --name H20 --onefile --windowed main.py 
+        pyinstaller --name H20 --onefile --windowed src/main.py 
 
         # Create the 'app' directory if it doesn't exist
         if (-not (Test-Path ".\app")) { New-Item -ItemType Directory -Path ".\app" | Out-Null }
