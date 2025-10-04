@@ -29,56 +29,49 @@ jobs:
         pip install pyinstaller # Install pyinstaller
 
     - name: Package Python Application with PyInstaller
-      # This example assumes you want to copy the contents of dist/H20 to an 'app' folder for mpdev
       run: |
-        # Clean up old builds (optional but good practice)
+        # Clean up old builds
         if (Test-Path ".\dist") { Remove-Item -Recurse -Force ".\dist" }
         if (Test-Path ".\build") { Remove-Item -Recurse -Force ".\build" }
         if (Test-Path ".\H20.spec") { Remove-Item -Force ".\H20.spec" }
         if (Test-Path ".\app") { Remove-Item -Recurse -Force ".\app" }
 
-        # Run PyInstaller to create the bundled application (e.g., in dist/H20.exe for --onefile)
-        # Using --onefile since you mentioned no assets, so the .exe will be standalone
-        pyinstaller --name H20 --onefile --windowed src/main.py 
+        # Run PyInstaller to create the bundled application as a single executable
+        pyinstaller --name H20 --onefile --windowed main.py 
 
-        # Create the 'app' directory if it doesn't exist
-        if (-not (Test-Path ".\app")) { New-Item -ItemType Directory -Path ".\app" | Out-Null }
+        # Create the 'app' directory
+        New-Item -ItemType Directory -Path ".\app"
 
-        # Copy PyInstaller's single executable to the 'app' folder as expected by msi.json
+        # Copy PyInstaller's single executable to the 'app' folder
         Copy-Item -Path ".\dist\H20.exe" -Destination ".\app\" -Force
 
-      working-directory: . # Make sure this is your project root where main.py is
+      working-directory: . # Assumes main.py is at the root of your repo
 
-    - name: Set up .NET (mpdev is a .NET tool)
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '6.0.x' # Adjust if mpdev requires a different version
-
-    - name: Install Master Packager Dev
-      run: dotnet tool install --global mpdev
+    - name: Install Master Packager Dev CLI via Winget
+      run: winget install MasterPackager.mpdev --exact --accept-package-agreements --scope machine
+      shell: pwsh
 
     - name: Build Installer with mpdev
-      run: mpdev build --config msi.json # Your msi.json should now only specify "msi" output
+      run: mpdev build --config msi.json
       working-directory: . # Assumes msi.json is at the root of your repo
 
     - name: List Output Files (for debugging)
       run: |
         Get-ChildItem -Path "OutputMSI" -Recurse
 
-    # --- Sigstore Signing Steps (Updated Method) ---
+    # --- Sigstore Signing Steps ---
     - name: Set up Cosign
-      uses: sigstore/cosign-installer@v3.1.1 # Install the cosign tool
+      uses: sigstore/cosign-installer@v3.1.1
       with:
-        cosign-release: 'v2.2.3' # Specify a stable Cosign version
+        cosign-release: 'v2.2.3'
 
     - name: Sign MSI with Cosign
-      shell: pwsh # Explicitly use PowerShell (pwsh) for clarity
+      shell: pwsh
       env:
-        COSIGN_EXPERIMENTAL: "true" # Required for some newer cosign features
-        # COSIGN_REPOSITORY: ghcr.io/${{ github.repository }} # Uncomment if you want to push signatures to GHCR
+        COSIGN_EXPERIMENTAL: "true"
       run: |
         # Get the path to your generated MSI
-        $msiPath = "OutputMSI/H20-1.0.0.msi" # Adjust version number or use wildcard if mpdev names it dynamically
+        $msiPath = "OutputMSI/H20-1.0.0.msi"
         
         # Check if the MSI file exists
         if (-not (Test-Path $msiPath)) {
@@ -110,6 +103,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: OutputMSI/H20-1.0.0.msi # Path to the signed MSI
-        asset_name: H20-${{ github.ref_name }}.msi # Naming the asset
+        asset_path: OutputMSI/H20-1.0.0.msi
+        asset_name: H20-${{ github.ref_name }}.msi
         asset_content_type: application/x-msi
