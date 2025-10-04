@@ -52,8 +52,27 @@ jobs:
 
       working-directory: . # Assumes main.py is at the root of your repo
 
-    - name: Install Master Packager Dev CLI via Winget
-      run: winget install MasterPackager.mpdev --exact --accept-package-agreements --accept-source-agreements --force --scope machine
+    - name: Install Master Packager Dev via MSI
+      run: |
+        # --- IMPORTANT: Replace this URL with the official direct download link for the mpdev MSI ---
+        $msiUrl = "https://cdn.masterpackager.com/installer/dev/1.2.0/mpdev_self_contained_x64_1.2.0.msi" # <-- **VERIFY THIS URL**
+        $msiPath = "$env:TEMP\mpdev_self_contained_x64_1.2.0.msi"
+
+        Write-Host "Downloading Master Packager Dev MSI from $msiUrl..."
+        Invoke-WebRequest -Uri $msiUrl -OutFile $msiPath -ErrorAction Stop
+
+        Write-Host "Installing mpdev.msi silently..."
+        # Use Start-Process with -Wait to ensure the installation completes before continuing.
+        # /i specifies the installer file.
+        # /qn specifies a quiet, no-UI installation.
+        Start-Process msiexec.exe -ArgumentList "/i `"$msiPath`" /qn" -Wait
+
+        Write-Host "Installation complete. Verifying mpdev is available..."
+        if (-not (Get-Command mpdev -ErrorAction SilentlyContinue)) {
+            Write-Error "mpdev command not found after installation. The MSI might not have added it to the PATH."
+            exit 1
+        }
+        Write-Host "mpdev verified successfully."
       shell: pwsh
 
     - name: Build Installer with mpdev
@@ -75,10 +94,8 @@ jobs:
       env:
         COSIGN_EXPERIMENTAL: "true"
       run: |
-        # Get the path to your generated MSI
         $msiPath = "OutputMSI/H20-1.0.0.msi"
         
-        # Check if the MSI file exists
         if (-not (Test-Path $msiPath)) {
             Write-Host "MSI file not found at $msiPath. Listing OutputMSI folder for debugging..."
             Get-ChildItem -Path "OutputMSI" -Recurse
