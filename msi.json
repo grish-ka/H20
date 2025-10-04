@@ -1,0 +1,42 @@
+{
+  "outputTypes": [
+    "msi" // <--- Changed from ["msi", "msix"]
+  ],
+  "outputDirectory": "OutputMSI",
+  "packageName": "H20",
+  "publisher": "Grishka",
+  "version": "1.0.0",
+  "platform": "x86",
+  "installDir": "%LOCALAPPDATA%\\H20",
+  "icon": "waveIcon.ico",
+  "fileSystemEntries": [
+    {
+      "sourcePath": "app",
+      "targetPath": "$.installDir"
+    }
+  ],
+  "shortcuts": [
+    {
+      "target": "$.installDir\\H20.exe", // <--- Ensure this matches your PyInstaller --name output
+      "name": "H20 Programming Language",
+      "description": "Launches the H20 interpreter.",
+      "location": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs"
+    }
+  ],
+  "msi": {
+    "upgradeCode": "{2110B93C-500F-428E-93CA-53ED93587A39}",
+    "installDialog": {
+      "packageDescription": "Programming Language",
+      "publisherUrl": "",
+      "releaseNotesUrl": "",
+      "eulaUrl": "",
+      "primaryAccent": "#01787B"
+    },
+    "properties": [
+      {
+        "name": "ALLUSERS",
+        "value": "0"
+      }
+    ]
+  }
+}

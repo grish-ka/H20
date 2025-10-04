@@ -1,0 +1,8 @@
+setup.cfg
+setup.py
+CLI-py/__init__.py
+CLI-py/main.py
+CLI_py.egg-info/PKG-INFO
+CLI_py.egg-info/SOURCES.txt
+CLI_py.egg-info/dependency_links.txt
+CLI_py.egg-info/top_level.txt
