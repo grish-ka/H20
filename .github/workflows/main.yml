@@ -1,0 +1,96 @@
+name: Build & Sign H20 Windows Installer
+
+on:
+  push:
+    tags:
+      - 'v*.*.*' # Triggers when a tag like v1.0.0 is pushed
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+jobs:
+  build-and-sign:
+    runs-on: windows-latest
+    permissions:
+      contents: write # To upload release assets
+      id-token: write # Required for Sigstore OIDC authentication
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x' # Specify your Python version
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt # Make sure you have a requirements.txt
+        pip install pyinstaller # Install pyinstaller
+
+    - name: Package Python Application with PyInstaller
+      # This example assumes you want to copy the contents of dist/H20 to an 'app' folder for mpdev
+      run: |
+        # Clean up old builds (optional but good practice)
+        if (Test-Path ".\dist") { Remove-Item -Recurse -Force ".\dist" }
+        if (Test-Path ".\build") { Remove-Item -Recurse -Force ".\build" }
+        if (Test-Path ".\H20.spec") { Remove-Item -Force ".\H20.spec" }
+        if (Test-Path ".\app") { Remove-Item -Recurse -Force ".\app" }
+
+        # Run PyInstaller to create the bundled application (e.g., in dist/H20 folder)
+        # Using --onefile since you mentioned no assets, so the .exe will be standalone
+        pyinstaller --name H20 --onefile --windowed main.py 
+
+        # Create the 'app' directory
+        New-Item -ItemType Directory -Path ".\app"
+
+        # Copy PyInstaller's single executable to the 'app' folder as expected by msi.json
+        Copy-Item -Path ".\dist\H20.exe" -Destination ".\app\" -Force
+
+      working-directory: . # Make sure this is your project root where main.py is
+
+    - name: Set up .NET (mpdev is a .NET tool)
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '6.0.x' # Adjust if mpdev requires a different version
+
+    - name: Install Master Packager Dev
+      run: dotnet tool install --global mpdev
+
+    - name: Build Installer with mpdev
+      run: mpdev build --config msi.json # Your msi.json should now only specify "msi" output
+      working-directory: . # Assumes msi.json is at the root of your repo
+
+    - name: List Output Files (for debugging)
+      run: |
+        Get-ChildItem -Path "OutputMSI" -Recurse
+
+    # --- Sigstore Signing Step ---
+    - name: Sign MSI with Sigstore
+      uses: sigstore/gh-action-sigstore-sign@v1
+      with:
+        # Files to sign, only the MSI in this case
+        files: OutputMSI/H20-1.0.0.msi # Adjust version number or use a wildcard if mpdev names it dynamically
+                                        # (e.g., OutputMSI/H20-*.msi for dynamic versioning)
+
+    # --- Release Creation and Asset Upload ---
+    - name: Create GitHub Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+
+    - name: Upload MSI to Release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: OutputMSI/H20-1.0.0.msi # Path to the signed MSI
+        asset_name: H20-${{ github.ref_name }}.msi # Naming the asset
+        asset_content_type: application/x-msi
