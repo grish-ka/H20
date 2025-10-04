@@ -16,8 +16,6 @@ args = parser.parse_args()
 
 class Ev:
 
-
-
     def ev(self, s):
         # s = self.s
         self.toks = s.split()
