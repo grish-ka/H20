@@ -42,7 +42,6 @@ jobs:
         if (Test-Path ".\app") { Remove-Item -Recurse -Force ".\app" }
 
         # Run PyInstaller to create the bundled application as a single executable
-        # main.py is in src/, so we reference src/main.py
         pyinstaller --name H20 --onefile --windowed src/main.py 
 
         # Create the 'app' directory
@@ -51,10 +50,10 @@ jobs:
         # Copy PyInstaller's single executable to the 'app' folder
         Copy-Item -Path ".\dist\H20.exe" -Destination ".\app\" -Force
 
-      working-directory: . # PyInstaller is run from the repository root, but points to src/main.py
+      working-directory: . # Assumes main.py is at the root of your repo
 
     - name: Install Master Packager Dev CLI via Winget
-      run: winget install MasterPackager.mpdev --exact --accept-package-agreements --scope machine
+      run: winget install MasterPackager.mpdev --exact --accept-package-agreements --accept-source-agreements --force --scope machine
       shell: pwsh
 
     - name: Build Installer with mpdev
