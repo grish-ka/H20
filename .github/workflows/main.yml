@@ -62,14 +62,10 @@ jobs:
         Invoke-WebRequest -Uri $msiUrl -OutFile $msiPath -ErrorAction Stop
 
         Write-Host "Installing mpdev.msi silently to $expectedInstallDir..."
-        # /i for install, /qn for quiet no UI.
-        # Use Start-Process with -Wait to ensure the installation completes.
-        # MSI installers typically add their install directory to PATH, but we'll ensure it.
         Start-Process msiexec.exe -ArgumentList "/i `"$msiPath`" /qn" -Wait
 
         Write-Host "Installation complete. Verifying and adding mpdev to PATH..."
 
-        # Check the specified installation directory for mpdev.exe
         if (Test-Path "$expectedInstallDir\mpdev.exe") {
             Write-Host "Found mpdev.exe at: $expectedInstallDir"
             Write-Host "Adding '$expectedInstallDir' to GITHUB_PATH."
@@ -85,7 +81,8 @@ jobs:
       shell: pwsh
 
     - name: Build Installer with mpdev
-      run: mpdev build --config msi.json
+      # Removed '--config' argument prefix as mpdev expects the JSON file directly
+      run: mpdev build msi.json
       working-directory: . # Assumes msi.json is at the root of your repo
 
     - name: List Output Files (for debugging)
