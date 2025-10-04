@@ -25,7 +25,12 @@ jobs:
     - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt # Make sure you have a requirements.txt
+        # Install dependencies from src/requirements.txt if it exists, otherwise from root
+        if (Test-Path ".\src\requirements.txt") {
+            pip install -r .\src\requirements.txt
+        } else {
+            pip install -r .\requirements.txt
+        }
         pip install pyinstaller # Install pyinstaller
 
     - name: Package Python Application with PyInstaller
@@ -37,7 +42,8 @@ jobs:
         if (Test-Path ".\app") { Remove-Item -Recurse -Force ".\app" }
 
         # Run PyInstaller to create the bundled application as a single executable
-        pyinstaller --name H20 --onefile --windowed main.py 
+        # main.py is in src/, so we reference src/main.py
+        pyinstaller --name H20 --onefile --windowed src/main.py 
 
         # Create the 'app' directory
         New-Item -ItemType Directory -Path ".\app"
@@ -45,7 +51,7 @@ jobs:
         # Copy PyInstaller's single executable to the 'app' folder
         Copy-Item -Path ".\dist\H20.exe" -Destination ".\app\" -Force
 
-      working-directory: . # Assumes main.py is at the root of your repo
+      working-directory: . # PyInstaller is run from the repository root, but points to src/main.py
 
     - name: Install Master Packager Dev CLI via Winget
       run: winget install MasterPackager.mpdev --exact --accept-package-agreements --scope machine
