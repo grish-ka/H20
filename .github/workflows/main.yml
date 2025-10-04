@@ -67,11 +67,11 @@ jobs:
 
     # --- Sigstore Signing Step ---
     - name: Sign MSI with Sigstore
-      uses: sigstore/gh-action-sigstore-sign@v1
+      uses: sigstore/gh-action-sign@v1 # <--- CHANGED ACTION NAME
       with:
-        # Files to sign, only the MSI in this case
-        files: OutputMSI/H20-1.0.0.msi # Adjust version number or use a wildcard if mpdev names it dynamically
-                                        # (e.g., OutputMSI/H20-*.msi for dynamic versioning)
+        # The 'assets' input takes a space-separated list of files or directories
+        assets: OutputMSI/H20-1.0.0.msi # Still adjust version if needed
+        # No 'files' input for this action, it's 'assets'
 
     # --- Release Creation and Asset Upload ---
     - name: Create GitHub Release
