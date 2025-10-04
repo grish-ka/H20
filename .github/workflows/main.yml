@@ -54,25 +54,34 @@ jobs:
 
     - name: Install Master Packager Dev via MSI
       run: |
-        # --- IMPORTANT: Replace this URL with the official direct download link for the mpdev MSI ---
-        $msiUrl = "https://cdn.masterpackager.com/installer/dev/1.2.0/mpdev_self_contained_x64_1.2.0.msi" # <-- **VERIFY THIS URL**
+        $msiUrl = "https://cdn.masterpackager.com/installer/dev/1.2.0/mpdev_self_contained_x64_1.2.0.msi"
         $msiPath = "$env:TEMP\mpdev_self_contained_x64_1.2.0.msi"
+        $expectedInstallDir = "C:\Program Files\Master Packager Ltd\Master Packager Dev" # Your specified install path
 
         Write-Host "Downloading Master Packager Dev MSI from $msiUrl..."
         Invoke-WebRequest -Uri $msiUrl -OutFile $msiPath -ErrorAction Stop
 
-        Write-Host "Installing mpdev.msi silently..."
-        # Use Start-Process with -Wait to ensure the installation completes before continuing.
-        # /i specifies the installer file.
-        # /qn specifies a quiet, no-UI installation.
+        Write-Host "Installing mpdev.msi silently to $expectedInstallDir..."
+        # /i for install, /qn for quiet no UI.
+        # Use Start-Process with -Wait to ensure the installation completes.
+        # MSI installers typically add their install directory to PATH, but we'll ensure it.
         Start-Process msiexec.exe -ArgumentList "/i `"$msiPath`" /qn" -Wait
 
-        Write-Host "Installation complete. Verifying mpdev is available..."
-        if (-not (Get-Command mpdev -ErrorAction SilentlyContinue)) {
-            Write-Error "mpdev command not found after installation. The MSI might not have added it to the PATH."
-            exit 1
+        Write-Host "Installation complete. Verifying and adding mpdev to PATH..."
+
+        # Check the specified installation directory for mpdev.exe
+        if (Test-Path "$expectedInstallDir\mpdev.exe") {
+            Write-Host "Found mpdev.exe at: $expectedInstallDir"
+            Write-Host "Adding '$expectedInstallDir' to GITHUB_PATH."
+            echo "$expectedInstallDir" | Out-File -FilePath $env:GITHUB_PATH -Append
+            Write-Host "mpdev command should now be available."
+        } else {
+            Write-Error "mpdev.exe was NOT found at the expected installation directory: $expectedInstallDir"
+            Write-Host "Please confirm the exact installation path for mpdev.exe."
+            Write-Host "Listing contents of 'C:\Program Files\Master Packager Ltd\' for debugging:"
+            Get-ChildItem -Path "C:\Program Files\Master Packager Ltd\" -Recurse -ErrorAction SilentlyContinue | Select-Object FullName
+            exit 1 # Fail the step if mpdev.exe isn't where expected
         }
-        Write-Host "mpdev verified successfully."
       shell: pwsh
 
     - name: Build Installer with mpdev
