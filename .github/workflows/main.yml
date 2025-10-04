@@ -65,13 +65,52 @@ jobs:
       run: |
         Get-ChildItem -Path "OutputMSI" -Recurse
 
-    # --- Sigstore Signing Step ---
-    - name: Sign MSI with Sigstore
-      uses: sigstore/gh-action-sign@v1 # <--- CHANGED ACTION NAME
-      with:
-        # The 'assets' input takes a space-separated list of files or directories
-        assets: OutputMSI/H20-1.0.0.msi # Still adjust version if needed
-        # No 'files' input for this action, it's 'assets'
+#    # --- Sigstore Signing Step ---
+#    - name: Sign MSI with Sigstore
+#      uses: sigstore/gh-action-sign@v1 # <--- CHANGED ACTION NAME
+#      with:
+#        # The 'assets' input takes a space-separated list of files or directories
+#        assets: OutputMSI/H20-1.0.0.msi # Still adjust version if needed
+#        # No 'files' input for this action, it's 'assets'
+        # --- Sigstore Signing Steps (Updated Method) ---
+        - name: Set up Cosign
+          uses: sigstore/cosign-installer@v3.1.1 # Install the cosign tool
+          with:
+            cosign-release: 'v2.2.3' # Specify a stable Cosign version
+
+        - name: Get Sigstore Identity Token
+          # This step is often implicitly handled by the signing action,
+          # but sometimes it helps to explicitly request the token for debugging or complex scenarios.
+          # For a simple blob sign, cosign should pick up the OIDC token automatically if permissions are set.
+          id: sigstore_identity
+          uses: actions/github-script@v6
+          with:
+            script: |
+              const token = await core.getIDToken('https://token.actions.githubusercontent.com');
+              core.setOutput('token', token);
+
+        - name: Sign MSI with Cosign
+          env:
+            COSIGN_REPOSITORY: ghcr.io/${{ github.repository }} # Optional: use GHCR for signatures
+            COSIGN_EXPERIMENTAL: "true" # Required for some newer cosign features
+          run: |
+            # Get the path to your generated MSI
+            $msiPath = "OutputMSI/H20-1.0.0.msi" # Adjust version number or use wildcard if mpdev names it dynamically
+
+            # Check if the MSI file exists
+            if (-not (Test-Path $msiPath)) {
+                Write-Host "MSI file not found at $msiPath. Listing OutputMSI folder for debugging..."
+                Get-ChildItem -Path "OutputMSI" -Recurse
+                exit 1
+            }
+
+            # Sign the MSI file as a blob using cosign.
+            # This will upload the signature to Rekor and potentially store metadata.
+            # The OIDC token from GitHub Actions will be used for authentication.
+            cosign sign-blob --output-signature "$($msiPath).sig" --output-attestation "$($msiPath).att" --yes "$msiPath"
+
+            # The signature and attestation files are now created alongside your MSI
+            # You can choose to upload these to the release as well, or just rely on Rekor.
 
     # --- Release Creation and Asset Upload ---
     - name: Create GitHub Release
