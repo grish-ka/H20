@@ -81,7 +81,6 @@ jobs:
       shell: pwsh
 
     - name: Build Installer with mpdev
-      # Removed '--config' argument prefix as mpdev expects the JSON file directly
       run: mpdev build msi.json
       working-directory: . # Assumes msi.json is at the root of your repo
 
@@ -100,7 +99,8 @@ jobs:
       env:
         COSIGN_EXPERIMENTAL: "true"
       run: |
-        $msiPath = "OutputMSI/H20-1.0.0.msi"
+        # Use quotes to handle the space in the filename
+        $msiPath = "OutputMSI/H20 1.0.0.msi"
         
         if (-not (Test-Path $msiPath)) {
             Write-Host "MSI file not found at $msiPath. Listing OutputMSI folder for debugging..."
@@ -111,9 +111,9 @@ jobs:
         Write-Host "Running 'cosign initialize' to refresh TUF metadata and trust roots..."
         cosign initialize
         
-        Write-Host "Attempting to sign $msiPath with Cosign..."
-        # REMOVED the --output-attestation flag as it's not supported in this cosign version
-        cosign sign-blob --output-signature "$($msiPath).sig" --yes "$msiPath" # <-- CHANGED HERE
+        Write-Host "Attempting to sign '$msiPath' with Cosign..."
+        # Use quotes around the variables to ensure the path is handled correctly
+        cosign sign-blob --output-signature "$($msiPath).sig" --yes "$msiPath"
         
         Write-Host "MSI signing process completed. Signature file generated."
 
@@ -135,6 +135,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: OutputMSI/H20-1.0.0.msi
+        # Use quotes for the asset_path to handle the space
+        asset_path: "OutputMSI/H20 1.0.0.msi"
         asset_name: H20-${{ github.ref_name }}.msi
         asset_content_type: application/x-msi
