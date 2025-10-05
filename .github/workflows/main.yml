@@ -101,7 +101,7 @@ jobs:
       env:
         COSIGN_EXPERIMENTAL: "true"
       run: |
-        $msiPath = "OutputMSI/H20-1.0.0.msi" # <-- This line was cut off in your last paste
+        $msiPath = "OutputMSI/H20 1.0.0.msi" # <-- This line was cut off in your last paste
         
         if (-not (Test-Path $msiPath)) {
             Write-Host "MSI file not found at $msiPath. Listing OutputMSI folder for debugging..."
