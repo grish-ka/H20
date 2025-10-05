@@ -101,4 +101,41 @@ jobs:
       env:
         COSIGN_EXPERIMENTAL: "true"
       run: |
-        $msiPath =
+        $msiPath = "OutputMSI/H20-1.0.0.msi" # <-- This line was cut off in your last paste
+        
+        if (-not (Test-Path $msiPath)) {
+            Write-Host "MSI file not found at $msiPath. Listing OutputMSI folder for debugging..."
+            Get-ChildItem -Path "OutputMSI" -Recurse
+            exit 1
+        }
+        
+        Write-Host "Running 'cosign initialize' to refresh TUF metadata and trust roots..."
+        cosign initialize 
+        
+        Write-Host "Attempting to sign $msiPath with Cosign..."
+        cosign sign-blob --output-signature "$($msiPath).sig" --output-attestation "$($msiPath).att" --yes "$msiPath"
+        
+        Write-Host "MSI signing process completed. Signature and attestation files generated."
+
+    # --- Release Creation and Asset Upload ---
+    - name: Create GitHub Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+
+    - name: Upload MSI to Release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        # Assuming mpdev names the MSI H20-1.0.0.msi for now, you should confirm this in logs.
+        asset_path: OutputMSI/H20-1.0.0.msi
+        asset_name: H20-${{ github.ref_name }}.msi # Use Git tag for consistent naming
+        asset_content_type: application/x-msi
