@@ -1,6 +1,6 @@
 {
   "outputTypes": [
-    "msi" // <--- Changed from ["msi", "msix"]
+    "msi"
   ],
   "outputDirectory": "OutputMSI",
   "packageName": "H20",
@@ -15,14 +15,7 @@
       "targetPath": "$.installDir"
     }
   ],
-  "shortcuts": [
-    {
-      "target": "$.installDir\\H20.exe", // <--- Ensure this matches your PyInstaller --name output
-      "name": "H20 Programming Language",
-      "description": "Launches the H20 interpreter.",
-      "location": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs"
-    }
-  ],
+  "shortcuts": [], // <--- **CRITICAL CHANGE: EMPTY SHORTCUTS ARRAY**
   "msi": {
     "upgradeCode": "{2110B93C-500F-428E-93CA-53ED93587A39}",
     "installDialog": {
