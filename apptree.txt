@@ -1,0 +1,704 @@
+Folder PATH listing
+Volume serial number is 1E59-F828
+C:.
++---.github
+¦   +---workflows
++---.idea
+¦   +---inspectionProfiles
++---.venv
+¦   +---Include
+¦   +---Lib
+¦   ¦   +---site-packages
+¦   ¦       +---altgraph
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---altgraph-0.17.4.dist-info
+¦   ¦       +---argparse-1.4.0.dist-info
+¦   ¦       +---ordlookup
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---packaging
+¦   ¦       ¦   +---licenses
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---packaging-25.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---pefile-2023.2.7.dist-info
+¦   ¦       +---pip
+¦   ¦       ¦   +---_internal
+¦   ¦       ¦   ¦   +---cli
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---commands
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---distributions
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---index
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---locations
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---metadata
+¦   ¦       ¦   ¦   ¦   +---importlib
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---models
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---network
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---operations
+¦   ¦       ¦   ¦   ¦   +---build
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---install
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---req
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---resolution
+¦   ¦       ¦   ¦   ¦   +---legacy
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---resolvelib
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---utils
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---vcs
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_vendor
+¦   ¦       ¦   ¦   +---cachecontrol
+¦   ¦       ¦   ¦   ¦   +---caches
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---certifi
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---dependency_groups
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---distlib
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---distro
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---idna
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---msgpack
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---packaging
+¦   ¦       ¦   ¦   ¦   +---licenses
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---pkg_resources
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---platformdirs
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---pygments
+¦   ¦       ¦   ¦   ¦   +---filters
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---formatters
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---lexers
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---styles
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---pyproject_hooks
+¦   ¦       ¦   ¦   ¦   +---_in_process
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---resolvelib
+¦   ¦       ¦   ¦   ¦   +---resolvers
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---rich
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---tomli
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---tomli_w
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---truststore
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---urllib3
+¦   ¦       ¦   ¦   ¦   +---contrib
+¦   ¦       ¦   ¦   ¦   ¦   +---_securetransport
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---packages
+¦   ¦       ¦   ¦   ¦   ¦   +---backports
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---util
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---pip-25.2.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       ¦       +---src
+¦   ¦       ¦           +---pip
+¦   ¦       ¦               +---_vendor
+¦   ¦       ¦                   +---cachecontrol
+¦   ¦       ¦                   +---certifi
+¦   ¦       ¦                   +---dependency_groups
+¦   ¦       ¦                   +---distlib
+¦   ¦       ¦                   +---distro
+¦   ¦       ¦                   +---idna
+¦   ¦       ¦                   +---msgpack
+¦   ¦       ¦                   +---packaging
+¦   ¦       ¦                   +---pkg_resources
+¦   ¦       ¦                   +---platformdirs
+¦   ¦       ¦                   +---pygments
+¦   ¦       ¦                   +---pyproject_hooks
+¦   ¦       ¦                   +---requests
+¦   ¦       ¦                   +---resolvelib
+¦   ¦       ¦                   +---rich
+¦   ¦       ¦                   +---tomli
+¦   ¦       ¦                   +---tomli_w
+¦   ¦       ¦                   +---truststore
+¦   ¦       ¦                   +---urllib3
+¦   ¦       +---pkg_resources
+¦   ¦       ¦   +---tests
+¦   ¦       ¦   ¦   +---data
+¦   ¦       ¦   ¦   ¦   +---my-test-package-source
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---my-test-package-zip
+¦   ¦       ¦   ¦   ¦   +---my-test-package_unpacked-egg
+¦   ¦       ¦   ¦   ¦   ¦   +---my_test_package-1.0-py3.7.egg
+¦   ¦       ¦   ¦   ¦   ¦       +---EGG-INFO
+¦   ¦       ¦   ¦   ¦   +---my-test-package_zipped-egg
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---PyInstaller
+¦   ¦       ¦   +---archive
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---bootloader
+¦   ¦       ¦   ¦   +---images
+¦   ¦       ¦   ¦   +---Windows-64bit-intel
+¦   ¦       ¦   +---building
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---depend
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---fake-modules
+¦   ¦       ¦   ¦   +---_pyi_rth_utils
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---hooks
+¦   ¦       ¦   ¦   +---pre_find_module_path
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---pre_safe_import_module
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---rthooks
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---isolated
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---lib
+¦   ¦       ¦   ¦   +---modulegraph
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---loader
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---utils
+¦   ¦       ¦   ¦   +---cliutils
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---hooks
+¦   ¦       ¦   ¦   ¦   +---qt
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---win32
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---pyinstaller-6.16.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---pyinstaller_hooks_contrib-2025.9.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---pywin32_ctypes-0.2.3.dist-info
+¦   ¦       +---setuptools
+¦   ¦       ¦   +---command
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---compat
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---config
+¦   ¦       ¦   ¦   +---_validate_pyproject
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---tests
+¦   ¦       ¦   ¦   +---compat
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---config
+¦   ¦       ¦   ¦   ¦   +---downloads
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---indexes
+¦   ¦       ¦   ¦   ¦   +---test_links_priority
+¦   ¦       ¦   ¦   ¦       +---simple
+¦   ¦       ¦   ¦   ¦           +---foobar
+¦   ¦       ¦   ¦   +---integration
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_distutils
+¦   ¦       ¦   ¦   +---command
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---compat
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---compilers
+¦   ¦       ¦   ¦   ¦   +---C
+¦   ¦       ¦   ¦   ¦       +---tests
+¦   ¦       ¦   ¦   ¦       ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦       +---__pycache__
+¦   ¦       ¦   ¦   +---tests
+¦   ¦       ¦   ¦   ¦   +---compat
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_vendor
+¦   ¦       ¦   ¦   +---autocommand
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---autocommand-2.2.2.dist-info
+¦   ¦       ¦   ¦   +---backports
+¦   ¦       ¦   ¦   ¦   +---tarfile
+¦   ¦       ¦   ¦   ¦   ¦   +---compat
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---backports.tarfile-1.2.0.dist-info
+¦   ¦       ¦   ¦   +---importlib_metadata
+¦   ¦       ¦   ¦   ¦   +---compat
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---importlib_metadata-8.0.0.dist-info
+¦   ¦       ¦   ¦   +---inflect
+¦   ¦       ¦   ¦   ¦   +---compat
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---inflect-7.3.1.dist-info
+¦   ¦       ¦   ¦   +---jaraco
+¦   ¦       ¦   ¦   ¦   +---collections
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---functools
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---text
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---jaraco.collections-5.1.0.dist-info
+¦   ¦       ¦   ¦   +---jaraco.context-5.3.0.dist-info
+¦   ¦       ¦   ¦   +---jaraco.functools-4.0.1.dist-info
+¦   ¦       ¦   ¦   +---jaraco.text-3.12.1.dist-info
+¦   ¦       ¦   ¦   +---more_itertools
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---more_itertools-10.3.0.dist-info
+¦   ¦       ¦   ¦   +---packaging
+¦   ¦       ¦   ¦   ¦   +---licenses
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---packaging-24.2.dist-info
+¦   ¦       ¦   ¦   +---platformdirs
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---platformdirs-4.2.2.dist-info
+¦   ¦       ¦   ¦   ¦   +---licenses
+¦   ¦       ¦   ¦   +---tomli
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---tomli-2.0.1.dist-info
+¦   ¦       ¦   ¦   +---typeguard
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---typeguard-4.3.0.dist-info
+¦   ¦       ¦   ¦   +---typing_extensions-4.12.2.dist-info
+¦   ¦       ¦   ¦   +---wheel
+¦   ¦       ¦   ¦   ¦   +---cli
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---vendored
+¦   ¦       ¦   ¦   ¦   ¦   +---packaging
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---wheel-0.45.1.dist-info
+¦   ¦       ¦   ¦   +---zipp
+¦   ¦       ¦   ¦   ¦   +---compat
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---zipp-3.19.2.dist-info
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---setuptools-80.9.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---win32ctypes
+¦   ¦       ¦   +---core
+¦   ¦       ¦   ¦   +---cffi
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---ctypes
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---pywin32
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---tests
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---_distutils_hack
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---_pyinstaller_hooks_contrib
+¦   ¦       ¦   +---pre_find_module_path
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---pre_safe_import_module
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---rthooks
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---stdhooks
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---utils
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---__pycache__
+¦   +---Scripts
++---.vs
+¦   +---H20
+¦       +---FileContentIndex
+¦       +---v17
++---app
+¦   +---_internal
++---build
+¦   +---H20
+¦       +---localpycs
++---CommandLineInterface
+¦   +---.idea
+¦   ¦   +---inspectionProfiles
+¦   +---CLI-py
+¦   +---CLI_py.egg-info
+¦   +---dist
+¦   +---venv
+¦       +---Lib
+¦       ¦   +---site-packages
+¦       ¦       +---build
+¦       ¦       ¦   +---_compat
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---build-1.2.2.post1.dist-info
+¦       ¦       +---colorama
+¦       ¦       ¦   +---tests
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---colorama-0.4.6.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---packaging
+¦       ¦       ¦   +---licenses
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---packaging-25.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---pip
+¦       ¦       ¦   +---_internal
+¦       ¦       ¦   ¦   +---cli
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---commands
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---distributions
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---index
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---locations
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---metadata
+¦       ¦       ¦   ¦   ¦   +---importlib
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---models
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---network
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---operations
+¦       ¦       ¦   ¦   ¦   +---build
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---install
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---req
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---resolution
+¦       ¦       ¦   ¦   ¦   +---legacy
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---resolvelib
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---utils
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---vcs
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_vendor
+¦       ¦       ¦   ¦   +---cachecontrol
+¦       ¦       ¦   ¦   ¦   +---caches
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---certifi
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---dependency_groups
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---distlib
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---distro
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---idna
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---msgpack
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---packaging
+¦       ¦       ¦   ¦   ¦   +---licenses
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---pkg_resources
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---platformdirs
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---pygments
+¦       ¦       ¦   ¦   ¦   +---filters
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---formatters
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---lexers
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---styles
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---pyproject_hooks
+¦       ¦       ¦   ¦   ¦   +---_in_process
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---requests
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---resolvelib
+¦       ¦       ¦   ¦   ¦   +---resolvers
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---rich
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---tomli
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---tomli_w
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---truststore
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---urllib3
+¦       ¦       ¦   ¦   ¦   +---contrib
+¦       ¦       ¦   ¦   ¦   ¦   +---_securetransport
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---packages
+¦       ¦       ¦   ¦   ¦   ¦   +---backports
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---util
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---pip-25.1.1.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---pkg_resources
+¦       ¦       ¦   +---tests
+¦       ¦       ¦   ¦   +---data
+¦       ¦       ¦   ¦   ¦   +---my-test-package-source
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---my-test-package-zip
+¦       ¦       ¦   ¦   ¦   +---my-test-package_unpacked-egg
+¦       ¦       ¦   ¦   ¦   ¦   +---my_test_package-1.0-py3.7.egg
+¦       ¦       ¦   ¦   ¦   ¦       +---EGG-INFO
+¦       ¦       ¦   ¦   ¦   +---my-test-package_zipped-egg
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---pyproject_hooks
+¦       ¦       ¦   +---_in_process
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---pyproject_hooks-1.2.0.dist-info
+¦       ¦       +---setuptools
+¦       ¦       ¦   +---command
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---compat
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---config
+¦       ¦       ¦   ¦   +---_validate_pyproject
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---tests
+¦       ¦       ¦   ¦   +---compat
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---config
+¦       ¦       ¦   ¦   ¦   +---downloads
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---indexes
+¦       ¦       ¦   ¦   ¦   +---test_links_priority
+¦       ¦       ¦   ¦   ¦       +---simple
+¦       ¦       ¦   ¦   ¦           +---foobar
+¦       ¦       ¦   ¦   +---integration
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_distutils
+¦       ¦       ¦   ¦   +---command
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---compat
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---compilers
+¦       ¦       ¦   ¦   ¦   +---C
+¦       ¦       ¦   ¦   ¦       +---tests
+¦       ¦       ¦   ¦   ¦       ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦       +---__pycache__
+¦       ¦       ¦   ¦   +---tests
+¦       ¦       ¦   ¦   ¦   +---compat
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_vendor
+¦       ¦       ¦   ¦   +---autocommand
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---autocommand-2.2.2.dist-info
+¦       ¦       ¦   ¦   +---backports
+¦       ¦       ¦   ¦   ¦   +---tarfile
+¦       ¦       ¦   ¦   ¦   ¦   +---compat
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---backports.tarfile-1.2.0.dist-info
+¦       ¦       ¦   ¦   +---importlib_metadata
+¦       ¦       ¦   ¦   ¦   +---compat
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---importlib_metadata-8.0.0.dist-info
+¦       ¦       ¦   ¦   +---inflect
+¦       ¦       ¦   ¦   ¦   +---compat
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---inflect-7.3.1.dist-info
+¦       ¦       ¦   ¦   +---jaraco
+¦       ¦       ¦   ¦   ¦   +---collections
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---functools
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---text
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---jaraco.collections-5.1.0.dist-info
+¦       ¦       ¦   ¦   +---jaraco.context-5.3.0.dist-info
+¦       ¦       ¦   ¦   +---jaraco.functools-4.0.1.dist-info
+¦       ¦       ¦   ¦   +---jaraco.text-3.12.1.dist-info
+¦       ¦       ¦   ¦   +---more_itertools
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---more_itertools-10.3.0.dist-info
+¦       ¦       ¦   ¦   +---packaging
+¦       ¦       ¦   ¦   ¦   +---licenses
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---packaging-24.2.dist-info
+¦       ¦       ¦   ¦   +---platformdirs
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---platformdirs-4.2.2.dist-info
+¦       ¦       ¦   ¦   ¦   +---licenses
+¦       ¦       ¦   ¦   +---tomli
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---tomli-2.0.1.dist-info
+¦       ¦       ¦   ¦   +---typeguard
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---typeguard-4.3.0.dist-info
+¦       ¦       ¦   ¦   +---typing_extensions-4.12.2.dist-info
+¦       ¦       ¦   ¦   +---wheel
+¦       ¦       ¦   ¦   ¦   +---cli
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---vendored
+¦       ¦       ¦   ¦   ¦   ¦   +---packaging
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---wheel-0.45.1.dist-info
+¦       ¦       ¦   ¦   +---zipp
+¦       ¦       ¦   ¦   ¦   +---compat
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---zipp-3.19.2.dist-info
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---setuptools-80.9.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---simple_term_menu-1.6.6.dist-info
+¦       ¦       +---survey
+¦       ¦       ¦   +---_core
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---survey-5.4.2.dist-info
+¦       ¦       +---wheel
+¦       ¦       ¦   +---cli
+¦       ¦       ¦   +---vendored
+¦       ¦       ¦       +---packaging
+¦       ¦       +---wheel-0.38.4.dist-info
+¦       ¦       +---_distutils_hack
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---__pycache__
+¦       +---Scripts
++---dist
+¦   +---H20
+¦       +---_internal
++---H20Installer
++---src
+PS C:\Users\grish\PycharmProjects\H20> tree app/
+Folder PATH listing
+Volume serial number is 000000FB 1E59:F828
+C:\USERS\GRISH\PYCHARMPROJECTS\H20\APP
++---_internal
+PS C:\Users\grish\PycharmProjects\H20> tree app
+Folder PATH listing
+Volume serial number is 00000081 1E59:F828
+C:\USERS\GRISH\PYCHARMPROJECTS\H20\APP
++---_internal
+PS C:\Users\grish\PycharmProjects\H20> tree /F app
+Folder PATH listing
+Volume serial number is 00000020 1E59:F828
+C:\USERS\GRISH\PYCHARMPROJECTS\H20\APP
+¦   H20.exe
+¦
++---_internal
+        api-ms-win-core-console-l1-1-0.dll
+        api-ms-win-core-datetime-l1-1-0.dll
+        api-ms-win-core-debug-l1-1-0.dll
+        api-ms-win-core-errorhandling-l1-1-0.dll
+        api-ms-win-core-fibers-l1-1-0.dll
+        api-ms-win-core-file-l1-1-0.dll
+        api-ms-win-core-file-l1-2-0.dll
+        api-ms-win-core-file-l2-1-0.dll
+        api-ms-win-core-handle-l1-1-0.dll
+        api-ms-win-core-heap-l1-1-0.dll
+        api-ms-win-core-interlocked-l1-1-0.dll
+        api-ms-win-core-libraryloader-l1-1-0.dll
+        api-ms-win-core-localization-l1-2-0.dll
+        api-ms-win-core-memory-l1-1-0.dll
+        api-ms-win-core-namedpipe-l1-1-0.dll
+        api-ms-win-core-processenvironment-l1-1-0.dll
+        api-ms-win-core-processthreads-l1-1-0.dll
+        api-ms-win-core-processthreads-l1-1-1.dll
+        api-ms-win-core-profile-l1-1-0.dll
+        api-ms-win-core-rtlsupport-l1-1-0.dll
+        api-ms-win-core-string-l1-1-0.dll
+        api-ms-win-core-synch-l1-1-0.dll
+        api-ms-win-core-synch-l1-2-0.dll
+        api-ms-win-core-sysinfo-l1-1-0.dll
+        api-ms-win-core-timezone-l1-1-0.dll
+        api-ms-win-core-util-l1-1-0.dll
+        api-ms-win-crt-conio-l1-1-0.dll
+        api-ms-win-crt-convert-l1-1-0.dll
+        api-ms-win-crt-environment-l1-1-0.dll
+        api-ms-win-crt-filesystem-l1-1-0.dll
+        api-ms-win-crt-heap-l1-1-0.dll
+        api-ms-win-crt-locale-l1-1-0.dll
+        api-ms-win-crt-math-l1-1-0.dll
+        api-ms-win-crt-process-l1-1-0.dll
+        api-ms-win-crt-runtime-l1-1-0.dll
+        api-ms-win-crt-stdio-l1-1-0.dll
+        api-ms-win-crt-string-l1-1-0.dll
+        api-ms-win-crt-time-l1-1-0.dll
+        api-ms-win-crt-utility-l1-1-0.dll
+        base_library.zip
+        libcrypto-3.dll
+        python312.dll
+        select.pyd
+        ucrtbase.dll
+        unicodedata.pyd
+        VCRUNTIME140.dll
+        _bz2.pyd
+        _decimal.pyd
+        _hashlib.pyd
+        _lzma.pyd
+        _socket.pyd

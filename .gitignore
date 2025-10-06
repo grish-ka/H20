@@ -24,6 +24,67 @@ dist/
 # This is the output directory specified in your msi.json
 OutputMSI/
 
+# WiX Toolset ignores
+# WiX Toolset generated files
+*.wixobj
+*.wixpdb
+*.wxs
+*.msi
+*.msm
+*.cab
+# WiX Toolset intermediate files
+*.wxl
+*.wixlib
+# WiX Toolset log files
+*.log
+# WiX Toolset backup files
+*.bak
+# WiX Toolset auto-generated files
+*.wixout
+# WiX Toolset temp files
+*.tmp
+# WiX Toolset object files
+*.obj
+# WiX Toolset compiled files
+*.lib
+# WiX Toolset source files
+*.wix
+# WiX Toolset localization files
+*.wxl
+# WiX Toolset patch files
+*.wixmsp
+# WiX Toolset transform files
+*.mst
+# WiX Toolset database files
+*.wixdb
+# WiX Toolset manifest files
+*.wixmanifest
+# WiX Toolset configuration files
+*.wixconfig
+# WiX Toolset schema files
+*.xsd
+# WiX Toolset documentation files
+*.chm
+# WiX Toolset help files
+*.hlp
+# WiX Toolset symbol files
+*.pdb
+# WiX Toolset source files
+*.wixsrc
+# WiX Toolset project files
+*.wixproj
+# WiX Toolset solution files
+*.sln
+# WiX Toolset user files
+*.user
+# WiX Toolset cache files
+*.cache # (if any)
+# WiX Toolset project folders
+H20Installer/obj/  # Object files folder
+H20Installer/bin/  # Binary files folder
+H20Installer # Project folder (if you have multiple projects, ignore their bin/ and obj/ folders too)
+
+
 # Self-signed certificate files (if you generated them locally for testing)
 # It's crucial NOT to commit private keys or certificates to a public repo.
 *.pfx

@@ -17,7 +17,7 @@ subprocess.run([
     "pyinstaller",
     "--name", "H20",
     "--onedir",
-    "--windowed", # or --noconsole for GUI apps
+    # "--windowed", # or --noconsole for GUI apps
     # "--add-data", "assets;assets", # Example: include assets folder
     "src/main.py"
 ], check=True)
@@ -26,5 +26,6 @@ subprocess.run([
 if os.path.exists("app"):
     shutil.rmtree("app")
 shutil.copytree("dist/H20", "app") # Copy PyInstaller's output folder to 'app'
+shutil.copyfile("waveIcon.ico", "app/waveIcon.ico")
 
 print("Python app packaged and ready in 'app' folder.")
