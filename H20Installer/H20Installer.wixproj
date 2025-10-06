@@ -1,0 +1,11 @@
+<Project Sdk="WixToolset.Sdk/6.0.0-rc.1">
+  <PropertyGroup>
+    <OutputType>Package</OutputType>
+    <SuppressIces>ICE38</SuppressIces>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="WixToolset.UI.wixext" Version="6.0.0-rc.1" />
+    <Content Include="Package.wxs" />
+  </ItemGroup>
+</Project>

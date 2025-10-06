@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+
+    <Package Name="H20"
+             Manufacturer="Grishka"
+             Version="0.0.1.1"
+             UpgradeCode="{51207E0D-1727-40B3-B6B3-AC566427BF55}"
+             Compressed="true"
+             Scope="perUser">
+
+        <WixVariable Id="WixUIBannerBmp" Value="banner.bmp" />
+        <WixVariable Id="WixUIDialogBmp" Value="dialog.bmp" />
+
+        <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+        <MediaTemplate EmbedCab="true" />
+
+        <Icon Id="waveIcon.ico" SourceFile="../app/waveIcon.ico"/>
+        <Property Id="ARPPRODUCTICON" Value="waveIcon.ico" />
+
+        <ui:WixUI Id="WixUI_InstallDir" InstallDirectory="INSTALLFOLDER" />
+
+        <StandardDirectory Id="LocalAppDataFolder">
+            <Directory Id="INSTALLFOLDER" Name="H20">
+                <Directory Id="InternalFolder" Name="_internal" />
+            </Directory>
+        </StandardDirectory>
+        <StandardDirectory Id="ProgramMenuFolder">
+            <Directory Id="ApplicationProgramsFolder" Name="H20"/>
+        </StandardDirectory>
+
+        <Feature Id="Main">
+            <ComponentRef Id="H20_Executable" />
+            <ComponentGroupRef Id="InternalFiles_ComponentGroup" />
+            <ComponentRef Id="ApplicationShortcut" />
+            <ComponentRef Id="Cleanup_InstallFolder" />
+            <ComponentRef Id="Cleanup_InternalFolder" />
+        </Feature>
+
+        <Component Id="H20_Executable" Directory="INSTALLFOLDER" Guid="{1E6A828C-325A-484A-9A5C-99E7A2A2A014}">
+            <File Id="H20.exe" Source="../app/H20.exe" />
+            <Environment Id="PATH" Name="Path" Value="[INSTALLFOLDER]" Permanent="no" Part="last" Action="set" System="no" />
+            <RegistryValue Root="HKCU" Key="Software\Grishka\H20" Name="MainExecutable" Type="string" Value="1" KeyPath="yes" />
+        </Component>
+
+        <ComponentGroup Id="InternalFiles_ComponentGroup" Directory="InternalFolder">
+            <Files Include="../app/_internal/**" />
+        </ComponentGroup>
+
+        <Component Id="ApplicationShortcut" Directory="ApplicationProgramsFolder" Guid="{A9A8A56E-8A5F-4E2F-89B8-B59752D5D624}">
+            <Shortcut Id="ApplicationStartMenuShortcut"
+                      Name="H20"
+                      Description="Launch H20 Application"
+                      Target="[INSTALLFOLDER]H20.exe"
+                      WorkingDirectory="INSTALLFOLDER"
+                      Icon="waveIcon.ico"/>
+            <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+            <RegistryValue Root="HKCU" Key="Software\Grishka\H20" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+        </Component>
+        
+        <Component Id="Cleanup_InstallFolder" Directory="INSTALLFOLDER" Guid="{F3D5B98B-D51E-4E3E-9B21-7A36814B3A8B}">
+            <RemoveFolder Id="INSTALLFOLDER" On="uninstall"/>
+            <RegistryValue Root="HKCU" Key="Software\Grishka\H20" Name="Path" Type="string" Value="[INSTALLFOLDER]" KeyPath="yes" />
+        </Component>
+
+        <Component Id="Cleanup_InternalFolder" Directory="InternalFolder" Guid="{5E4C2A3B-4D3C-4B1C-8D7E-9A5B6C4F3E2D}">
+            <RemoveFolder Id="InternalFolder" On="uninstall"/>
+            <RegistryValue Root="HKCU" Key="Software\Grishka\H20" Name="InternalPath" Type="string" Value="[InternalFolder]" KeyPath="yes" />
+        </Component>
+
+    </Package>
+</Wix>
