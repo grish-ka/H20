@@ -83,7 +83,9 @@ OutputMSI/
 H20Installer/obj/  # Object files folder
 H20Installer/bin/  # Binary files folder
 H20Installer # Project folder (if you have multiple projects, ignore their bin/ and obj/ folders too)
-
+#OutputMsi Folder (if you have a specific output folder for your MSI files)
+H20Installer
+app/*
 
 # Self-signed certificate files (if you generated them locally for testing)
 # It's crucial NOT to commit private keys or certificates to a public repo.
