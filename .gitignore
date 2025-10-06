@@ -82,9 +82,6 @@ OutputMSI/
 # WiX Toolset project folders
 H20Installer/obj/  
 H20Installer/bin/ 
-H20Installer 
-#OutputMsi Folder (if you have a specific output folder for your MSI files)
-H20Installer
 
 
 # Self-signed certificate files (if you generated them locally for testing)
