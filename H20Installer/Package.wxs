@@ -4,15 +4,12 @@
 
     <Package Name="H20"
              Manufacturer="Grishka"
-             Version="0.0.1.1"
+             Version="1.0.0.0"
              UpgradeCode="{51207E0D-1727-40B3-B6B3-AC566427BF55}"
              Compressed="true"
              Scope="perUser">
 
-        <WixVariable Id="WixUIBannerBmp" Value="banner.bmp" />
-        <WixVariable Id="WixUIDialogBmp" Value="dialog.bmp" />
-
-        <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+        <WixVariable Id="WixUIBannerBmp" Value="banner.bmp" /> <WixVariable Id="WixUIDialogBmp" Value="dialog.bmp" />   <WixVariable Id="WixUILicenseRtf" Value="License.rtf" /> <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
         <MediaTemplate EmbedCab="true" />
 
         <Icon Id="waveIcon.ico" SourceFile="../app/waveIcon.ico"/>
