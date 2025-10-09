@@ -4,7 +4,7 @@
 
     <Package Name="H20"
              Manufacturer="Grishka"
-             Version="1.0.0.0"
+             Version="1.0.0.2"
              UpgradeCode="{51207E0D-1727-40B3-B6B3-AC566427BF55}"
              Compressed="true"
              Scope="perUser">

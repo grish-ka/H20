@@ -42,8 +42,10 @@ class Ev:
                 rhs = int(stack.pop())
                 lhs = int(stack.pop())
                 stack.append(lhs * rhs)
-        for index in range(len(stack)):
-                print(stack[index])
+            elif tok == 'print':
+                item = stack.pop()
+                stack.append(item)
+                print(item)
 
 if __name__ == '__main__':
     Ev.ev(Ev, open(args.file).read())
