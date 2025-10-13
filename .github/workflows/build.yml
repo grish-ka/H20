@@ -7,6 +7,10 @@ on:
       - 'v*.*.*.*-**'
   workflow_dispatch:
 
+# Add permissions for the softprops/action-gh-release action to create a release
+permissions:
+  contents: write
+
 jobs:
   build-python-app:
     runs-on: windows-latest
